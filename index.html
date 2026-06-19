@@ -1,16 +1,2007 @@
 <!doctype html>
 <html lang="es">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Maruko restaurante japones</title>
-    <meta http-equiv="refresh" content="0; url=maruko-github-upload/">
-    <script>
-      window.location.replace("maruko-github-upload/" + window.location.search + window.location.hash);
-    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maruko restaurante japonés | Sants-Montjuïc</title>
+    <meta
+      name="description"
+      content="Maruko restaurante japonés en Carrer de Gavà, 89, Sants-Montjuïc, Barcelona. Sushi, nigiri, uramaki y cocina japonesa de barrio con una mirada cuidada."
+    />
+    <link rel="canonical" href="https://www.marukobcn.com/" />
+    <style>
+      :root {
+        --paper: #f7f3eb;
+        --mist: #eee8dd;
+        --ink: #191613;
+        --muted: #6d655d;
+        --line: rgba(25, 22, 19, 0.16);
+        --soft-line: rgba(25, 22, 19, 0.08);
+        --accent: #9f2027;
+        --gold: #d6b15a;
+        --navy: #241d1b;
+        --green: #425f52;
+        --white: #ffffff;
+        --radius: 10px;
+        --max: 1180px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      section[id] {
+        scroll-margin-top: 72px;
+      }
+
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family:
+          "Avenir Next", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont,
+          sans-serif;
+        line-height: 1.5;
+      }
+
+      body::selection {
+        background: var(--accent);
+        color: var(--white);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      button {
+        font: inherit;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      .container {
+        width: min(var(--max), calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .topbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 10;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+        background: rgba(18, 15, 13, 0.78);
+        color: var(--white);
+        backdrop-filter: blur(18px);
+      }
+
+      .topbar-inner {
+        min-height: 72px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 700;
+      }
+
+      .brand-logo {
+        width: 48px;
+        height: 48px;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.42);
+        background: var(--white);
+      }
+
+      .brand small {
+        display: block;
+        color: rgba(255, 255, 255, 0.68);
+        font-size: 0.75rem;
+        font-weight: 500;
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        color: rgba(255, 255, 255, 0.78);
+        font-size: 0.94rem;
+      }
+
+      .nav a:hover {
+        color: var(--white);
+      }
+
+      .nav a {
+        position: relative;
+        padding: 25px 0;
+      }
+
+      .nav a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 100%;
+        bottom: 17px;
+        height: 1px;
+        background: var(--gold);
+        transition: right 180ms ease;
+      }
+
+      .nav a:hover::after {
+        right: 0;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        padding: 0 18px;
+        border: 1px solid currentColor;
+        border-radius: var(--radius);
+        color: inherit;
+        font-weight: 700;
+        white-space: nowrap;
+        cursor: pointer;
+        transition:
+          transform 160ms ease,
+          background 160ms ease,
+          color 160ms ease,
+          border-color 160ms ease;
+      }
+
+      .button:hover {
+        transform: translateY(-1px);
+      }
+
+      .button:active {
+        transform: translateY(0);
+      }
+
+      .button-accent {
+        border-color: var(--accent);
+        background: var(--accent);
+        color: var(--white);
+      }
+
+      .button-accent:hover {
+        background: #ad342c;
+        border-color: #ad342c;
+      }
+
+      .button-light {
+        border-color: rgba(255, 255, 255, 0.8);
+        color: var(--white);
+      }
+
+      .button-light:hover {
+        background: rgba(255, 255, 255, 0.12);
+      }
+
+      .button-dark {
+        border-color: var(--ink);
+        color: var(--ink);
+      }
+
+      .button-dark:hover {
+        background: var(--ink);
+        color: var(--white);
+      }
+
+      .hero {
+        min-height: 94dvh;
+        display: grid;
+        align-items: end;
+        position: relative;
+        color: var(--white);
+        background:
+          linear-gradient(90deg, rgba(13, 10, 9, 0.88), rgba(13, 10, 9, 0.48) 56%, rgba(13, 10, 9, 0.18)),
+          linear-gradient(0deg, rgba(13, 10, 9, 0.9), transparent 42%),
+          url("maruko-github-upload/assets/maruko-sushi-hero.png") center / cover;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 72px auto auto 0;
+        width: 5px;
+        height: 30%;
+        background: var(--accent);
+      }
+
+      .hero-content {
+        padding: 132px 0 54px;
+      }
+
+      .place-label {
+        margin-bottom: 18px;
+        color: rgba(255, 255, 255, 0.78);
+        font-size: 0.86rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+
+      h1,
+      h2,
+      h3 {
+        margin: 0;
+        font-family:
+          "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+        font-weight: 600;
+        letter-spacing: 0;
+        line-height: 1;
+      }
+
+      h1 {
+        max-width: 820px;
+      }
+
+      h1 span {
+        display: block;
+        font-size: clamp(5rem, 10vw, 8.4rem);
+        line-height: 0.82;
+        letter-spacing: -0.045em;
+      }
+
+      h1 small {
+        display: block;
+        margin-top: 20px;
+        font-family:
+          "Avenir Next", "Segoe UI", system-ui, sans-serif;
+        font-size: clamp(0.82rem, 1.4vw, 1.05rem);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.28em;
+      }
+
+      .hero-copy {
+        max-width: 600px;
+        margin: 22px 0 0;
+        color: rgba(255, 255, 255, 0.82);
+        font-size: 1.14rem;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 28px;
+      }
+
+      .hero-strip {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1px;
+        margin-top: 42px;
+        max-width: 980px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        background: rgba(255, 255, 255, 0.16);
+      }
+
+      .hero-fact {
+        padding: 19px 20px;
+        background: rgba(17, 14, 12, 0.56);
+      }
+
+      .hero-fact strong {
+        display: block;
+        margin-bottom: 4px;
+        font-size: 0.94rem;
+      }
+
+      .hero-fact span {
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 0.9rem;
+      }
+
+      .hero-fact a {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      .section {
+        padding: 92px 0;
+      }
+
+      .section-alt {
+        background: var(--mist);
+      }
+
+      .section-title {
+        position: relative;
+        display: grid;
+        grid-template-columns: 0.82fr 1fr;
+        align-items: end;
+        gap: 40px;
+        margin-bottom: 34px;
+      }
+
+      .section-title::after {
+        position: absolute;
+        right: 0;
+        top: -36px;
+        color: rgba(159, 32, 39, 0.1);
+        font-family: "Iowan Old Style", Georgia, serif;
+        font-size: 7rem;
+        font-weight: 600;
+        line-height: 1;
+        pointer-events: none;
+      }
+
+      .section-title > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      #carta .section-title::after {
+        content: "01";
+      }
+
+      #para-llevar .section-title::after {
+        content: "02";
+        color: rgba(255, 255, 255, 0.07);
+      }
+
+      #cocina .section-title::after {
+        content: "03";
+      }
+
+      #opiniones .section-title::after {
+        content: "04";
+      }
+
+      #ubicacion .section-title::after {
+        content: "05";
+      }
+
+      .kicker {
+        margin: 0 0 12px;
+        color: var(--accent);
+        font-size: 0.82rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+
+      h2 {
+        max-width: 720px;
+        font-size: 3.35rem;
+        letter-spacing: -0.025em;
+      }
+
+      .section-title p {
+        margin: 0;
+        max-width: 620px;
+        color: var(--muted);
+        font-size: 1.05rem;
+      }
+
+      .intro-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+        align-items: stretch;
+      }
+
+      .intro-image {
+        min-height: 520px;
+        border-radius: var(--radius);
+        overflow: hidden;
+      }
+
+      .intro-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .intro-copy {
+        display: grid;
+        align-content: space-between;
+        gap: 32px;
+        padding: 8px 0;
+      }
+
+      .intro-copy p {
+        margin: 0;
+        max-width: 560px;
+        color: var(--muted);
+        font-size: 1.22rem;
+      }
+
+      .notes {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .note {
+        min-height: 132px;
+        padding: 18px;
+        border: 1px solid var(--soft-line);
+        border-radius: var(--radius);
+        background: rgba(255, 255, 255, 0.62);
+      }
+
+      .note strong {
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      .note span {
+        color: var(--muted);
+      }
+
+      .menu-toolbar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 22px;
+      }
+
+      .tab {
+        min-height: 42px;
+        padding: 0 15px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: transparent;
+        color: var(--muted);
+        cursor: pointer;
+        font-weight: 700;
+      }
+
+      .tab:hover {
+        color: var(--ink);
+      }
+
+      .tab[aria-pressed="true"] {
+        border-color: var(--ink);
+        background: var(--ink);
+        color: var(--white);
+      }
+
+      .menu-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .dish {
+        min-height: 240px;
+        display: flex;
+        flex-direction: column;
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: rgba(255, 255, 255, 0.72);
+      }
+
+      .dish-type {
+        margin-bottom: 16px;
+        color: var(--accent);
+        font-size: 0.76rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+
+      .dish h3 {
+        font-size: 1.35rem;
+        line-height: 1.1;
+      }
+
+      .dish p {
+        margin: 14px 0 0;
+        color: var(--muted);
+      }
+
+      .dish-foot {
+        margin-top: auto;
+        padding-top: 18px;
+        color: var(--ink);
+        font-weight: 800;
+      }
+
+      .menu-entry {
+        position: relative;
+        width: 100%;
+        min-height: 370px;
+        display: flex;
+        align-items: flex-end;
+        padding: clamp(26px, 5vw, 54px);
+        overflow: hidden;
+        border: 0;
+        border-radius: var(--radius);
+        background:
+          linear-gradient(90deg, rgba(15, 12, 10, 0.9), rgba(15, 12, 10, 0.42) 65%, rgba(15, 12, 10, 0.16)),
+          url("maruko-github-upload/assets/maruko-sushi-hero.png") center 58% / cover;
+        color: var(--white);
+        text-align: left;
+        box-shadow: 0 24px 64px rgba(25, 22, 19, 0.16);
+        cursor: pointer;
+        transition:
+          transform 220ms ease,
+          box-shadow 220ms ease;
+      }
+
+      .menu-entry:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 30px 74px rgba(25, 22, 19, 0.22);
+      }
+
+      .menu-entry-copy {
+        position: relative;
+        z-index: 1;
+        max-width: 590px;
+      }
+
+      .menu-entry-copy span {
+        display: block;
+        margin-bottom: 12px;
+        color: var(--gold);
+        font-size: 0.78rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+      }
+
+      .menu-entry-copy strong {
+        display: block;
+        font-family: "Iowan Old Style", Georgia, serif;
+        font-size: clamp(2.4rem, 5vw, 4.4rem);
+        font-weight: 600;
+        line-height: 0.98;
+      }
+
+      .menu-entry-copy small {
+        display: block;
+        margin-top: 16px;
+        color: rgba(255, 255, 255, 0.74);
+        font-size: 0.96rem;
+      }
+
+      .menu-entry-arrow {
+        position: absolute;
+        right: clamp(24px, 5vw, 54px);
+        bottom: clamp(26px, 5vw, 54px);
+        z-index: 1;
+        width: 54px;
+        height: 54px;
+        display: grid;
+        place-items: center;
+        border: 1px solid rgba(255, 255, 255, 0.55);
+        border-radius: 50%;
+        font-size: 1.45rem;
+      }
+
+      .price-overview {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 16px;
+      }
+
+      .price-card {
+        position: relative;
+        overflow: hidden;
+        padding: 22px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: rgba(255, 253, 248, 0.72);
+        box-shadow: 0 16px 44px rgba(25, 22, 19, 0.06);
+      }
+
+      .price-card::before {
+        content: "";
+        position: absolute;
+        inset: 0 auto 0 0;
+        width: 4px;
+        background: var(--accent);
+      }
+
+      .price-card h3 {
+        margin-bottom: 14px;
+        font-size: 1.45rem;
+      }
+
+      .price-card p {
+        margin: 0 0 16px;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .price-line {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 10px 0;
+        border-top: 1px solid var(--soft-line);
+      }
+
+      .price-line strong {
+        color: var(--accent);
+        white-space: nowrap;
+      }
+
+      .menu-dialog {
+        width: min(1040px, calc(100% - 24px));
+        height: calc(100dvh - 24px);
+        padding: 0;
+        overflow: hidden;
+        border: 0;
+        border-radius: 14px;
+        background: #151817;
+        color: var(--white);
+        box-shadow: 0 30px 100px rgba(0, 0, 0, 0.55);
+      }
+
+      .menu-dialog::backdrop {
+        background: rgba(5, 7, 6, 0.82);
+        backdrop-filter: blur(7px);
+      }
+
+      .menu-viewer-head {
+        position: sticky;
+        top: 0;
+        z-index: 3;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 16px 18px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(21, 24, 23, 0.96);
+        backdrop-filter: blur(14px);
+      }
+
+      .menu-viewer-title {
+        display: grid;
+        gap: 2px;
+      }
+
+      .menu-viewer-title strong {
+        font-size: 1.08rem;
+      }
+
+      .menu-viewer-title span {
+        color: rgba(255, 255, 255, 0.58);
+        font-size: 0.8rem;
+      }
+
+      .menu-viewer-close {
+        width: 40px;
+        height: 40px;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 50%;
+        background: transparent;
+        color: var(--white);
+        cursor: pointer;
+      }
+
+      .menu-viewer-scroll {
+        height: calc(100% - 73px);
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        scroll-behavior: smooth;
+        background: #202422;
+        scrollbar-color: rgba(255, 255, 255, 0.35) transparent;
+      }
+
+      .menu-viewer-list {
+        width: min(900px, 100%);
+        margin: 0 auto;
+        padding: 24px;
+      }
+
+      .menu-sheet {
+        margin: 0 0 18px;
+        scroll-margin-top: 20px;
+      }
+
+      .menu-sheet figcaption {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 10px 4px;
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 0.86rem;
+      }
+
+      .menu-sheet img {
+        width: 100%;
+        height: auto;
+        border-radius: 6px;
+        background: var(--white);
+        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.28);
+      }
+
+      .menu-sheet.is-takeaway img {
+        aspect-ratio: 4 / 3;
+        object-fit: contain;
+      }
+
+      .menu-scroll-hint {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        color: rgba(255, 255, 255, 0.62);
+        font-size: 0.82rem;
+      }
+
+      .menu-viewer-actions {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .takeaway {
+        position: relative;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at 88% 18%, rgba(159, 32, 39, 0.42), transparent 30%),
+          var(--navy);
+        color: var(--white);
+      }
+
+      .takeaway::before {
+        content: "丸";
+        position: absolute;
+        right: -40px;
+        bottom: -130px;
+        color: rgba(255, 255, 255, 0.025);
+        font-family: Georgia, serif;
+        font-size: 34rem;
+        line-height: 1;
+        pointer-events: none;
+      }
+
+      .takeaway .kicker {
+        color: var(--gold);
+      }
+
+      .takeaway .section-title p {
+        color: rgba(255, 255, 255, 0.72);
+      }
+
+      .takeaway-grid {
+        display: grid;
+        grid-template-columns: 0.82fr 1.18fr;
+        gap: 28px;
+        align-items: center;
+      }
+
+      .takeaway-copy {
+        display: grid;
+        align-content: center;
+        gap: 22px;
+        padding: clamp(26px, 5vw, 54px);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: var(--radius);
+        background: rgba(255, 255, 255, 0.045);
+        backdrop-filter: blur(10px);
+      }
+
+      .takeaway-copy h3 {
+        font-size: 2.7rem;
+        line-height: 1.05;
+      }
+
+      .takeaway-copy p {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.75);
+        font-size: 1.05rem;
+      }
+
+      .takeaway-facts {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .takeaway-fact {
+        padding: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: var(--radius);
+      }
+
+      .takeaway-fact strong {
+        display: block;
+        color: var(--gold);
+        font-size: 1.25rem;
+      }
+
+      .takeaway-fact span {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.88rem;
+      }
+
+      .takeaway-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .takeaway-actions .button-light {
+        border-color: var(--gold);
+        background: var(--gold);
+        color: #241d1b;
+      }
+
+      .takeaway-actions .button-light:hover {
+        border-color: #e5c878;
+        background: #e5c878;
+        color: #241d1b;
+      }
+
+      .takeaway-preview {
+        aspect-ratio: 4 / 3;
+        padding: 12px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        border-radius: var(--radius);
+        background: #f4efe5;
+        cursor: pointer;
+        box-shadow: 0 26px 70px rgba(0, 0, 0, 0.28);
+      }
+
+      .takeaway-preview img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+        border-radius: 4px;
+      }
+
+      .reviews-head {
+        display: grid;
+        grid-template-columns: 0.7fr 1.3fr;
+        gap: 28px;
+      }
+
+      .rating-card,
+      .reviews-copy {
+        padding: 34px;
+        border-radius: var(--radius);
+      }
+
+      .rating-card {
+        min-height: 280px;
+        display: grid;
+        align-content: center;
+        background:
+          radial-gradient(circle at 80% 20%, rgba(214, 177, 90, 0.26), transparent 34%),
+          var(--accent);
+        color: var(--white);
+      }
+
+      .google-label {
+        color: rgba(255, 255, 255, 0.66);
+        font-size: 0.82rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+
+      .rating-number {
+        font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+        font-size: 6rem;
+        line-height: 1;
+      }
+
+      .stars,
+      .review-stars {
+        color: #d4aa43;
+        letter-spacing: 0.08em;
+      }
+
+      .reviews-copy {
+        display: grid;
+        align-content: center;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.74);
+      }
+
+      .reviews-copy h3 {
+        font-size: 2.15rem;
+      }
+
+      .review-carousel {
+        margin-top: 12px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: rgba(255, 253, 248, 0.82);
+      }
+
+      .review-stage,
+      .review-slide {
+        min-height: 260px;
+      }
+
+      .review-slide {
+        display: none;
+        align-content: center;
+        padding: 38px clamp(24px, 6vw, 76px);
+      }
+
+      .review-slide.is-active {
+        display: grid;
+      }
+
+      .review-slide blockquote {
+        max-width: 850px;
+        margin: 20px 0;
+        font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+        font-size: clamp(1.45rem, 3vw, 2.35rem);
+        line-height: 1.25;
+      }
+
+      .review-slide cite {
+        color: var(--muted);
+        font-size: 0.9rem;
+        font-style: normal;
+      }
+
+      .review-controls {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        padding: 0 24px 24px;
+      }
+
+      .review-arrow {
+        width: 42px;
+        height: 42px;
+        border: 1px solid var(--line);
+        border-radius: 50%;
+        background: transparent;
+        cursor: pointer;
+      }
+
+      .review-dots {
+        display: flex;
+        gap: 8px;
+      }
+
+      .review-dot {
+        width: 9px;
+        height: 9px;
+        padding: 0;
+        border: 0;
+        border-radius: 50%;
+        background: rgba(17, 19, 18, 0.22);
+        cursor: pointer;
+      }
+
+      .review-dot.is-active {
+        background: var(--accent);
+      }
+
+      .visit-grid {
+        display: grid;
+        grid-template-columns: 1.08fr 0.92fr;
+        gap: 28px;
+      }
+
+      .map-panel {
+        min-height: 470px;
+        position: relative;
+        overflow: hidden;
+        border-radius: var(--radius);
+        background:
+          linear-gradient(135deg, rgba(45, 98, 88, 0.15), transparent 38%),
+          linear-gradient(90deg, rgba(17, 19, 18, 0.08) 1px, transparent 1px),
+          linear-gradient(0deg, rgba(17, 19, 18, 0.08) 1px, transparent 1px),
+          #eef3f0;
+        background-size: auto, 74px 74px, 74px 74px, auto;
+        border: 1px solid var(--line);
+      }
+
+      .map-panel iframe {
+        width: 100%;
+        height: 100%;
+        min-height: 470px;
+        border: 0;
+      }
+
+      .map-road {
+        position: absolute;
+        height: 22px;
+        background: rgba(17, 19, 18, 0.12);
+        transform-origin: left center;
+      }
+
+      .map-road.one {
+        left: -30px;
+        right: -70px;
+        top: 48%;
+        transform: rotate(-8deg);
+      }
+
+      .map-road.two {
+        left: 18%;
+        width: 76%;
+        top: 22%;
+        transform: rotate(28deg);
+      }
+
+      .map-road.three {
+        left: 8%;
+        width: 88%;
+        bottom: 20%;
+        transform: rotate(14deg);
+      }
+
+      .pin {
+        position: absolute;
+        left: 50%;
+        top: 48%;
+        width: 22px;
+        height: 22px;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow:
+          0 0 0 12px rgba(198, 63, 53, 0.16),
+          0 0 0 28px rgba(198, 63, 53, 0.08);
+      }
+
+      .map-label {
+        position: absolute;
+        left: 22px;
+        right: 22px;
+        bottom: 22px;
+        padding: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.58);
+        border-radius: var(--radius);
+        background: rgba(255, 255, 255, 0.78);
+        backdrop-filter: blur(14px);
+        pointer-events: none;
+        box-shadow: 0 12px 36px rgba(17, 19, 18, 0.14);
+      }
+
+      .map-label strong {
+        display: block;
+        margin-bottom: 6px;
+      }
+
+      .map-label span {
+        color: var(--muted);
+      }
+
+      .visit-panel {
+        display: grid;
+        align-content: space-between;
+        gap: 26px;
+      }
+
+      .detail-list {
+        border-top: 1px solid var(--line);
+      }
+
+      .detail-row {
+        display: grid;
+        grid-template-columns: 150px 1fr;
+        gap: 18px;
+        padding: 18px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .detail-row strong {
+        color: var(--ink);
+      }
+
+      .detail-row span {
+        color: var(--muted);
+      }
+
+      .closing {
+        padding: 82px 0;
+        background:
+          linear-gradient(90deg, rgba(159, 32, 39, 0.18), transparent 40%),
+          var(--ink);
+        color: var(--white);
+      }
+
+      .closing-inner {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 30px;
+        align-items: center;
+      }
+
+      .closing h2 {
+        max-width: 720px;
+        font-size: 3.65rem;
+      }
+
+      .closing p {
+        max-width: 620px;
+        margin: 18px 0 0;
+        color: rgba(255, 255, 255, 0.72);
+      }
+
+      .closing-actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 10px;
+      }
+
+      .footer {
+        padding: 18px 0;
+        background: var(--ink);
+        color: rgba(255, 255, 255, 0.58);
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        font-size: 0.92rem;
+      }
+
+      .mobile-actions {
+        display: none;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(16px);
+        transition:
+          opacity 600ms ease,
+          transform 600ms ease;
+      }
+
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        .button,
+        .reveal {
+          transition: none;
+        }
+
+        .reveal {
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      @media (max-width: 1040px) {
+        h1 span {
+          font-size: 6rem;
+        }
+
+        h2,
+        .closing h2 {
+          font-size: 2.65rem;
+        }
+
+        .nav {
+          display: none;
+        }
+
+        .section-title,
+        .intro-grid,
+        .takeaway-grid,
+        .reviews-head,
+        .visit-grid,
+        .closing-inner {
+          grid-template-columns: 1fr;
+        }
+
+        .closing-actions {
+          justify-content: flex-start;
+        }
+      }
+
+      @media (max-width: 680px) {
+        .container {
+          width: min(var(--max), calc(100% - 24px));
+        }
+
+        .topbar-inner {
+          min-height: 66px;
+        }
+
+        .brand small {
+          display: none;
+        }
+
+        .brand-logo {
+          width: 42px;
+          height: 42px;
+        }
+
+        .topbar .button {
+          min-height: 40px;
+          padding: 0 12px;
+          font-size: 0.88rem;
+        }
+
+        .hero {
+          min-height: 78dvh;
+          background-position: 58% center;
+        }
+
+        .hero-content {
+          padding: 104px 0 32px;
+        }
+
+        h1 span {
+          font-size: 4.15rem;
+        }
+
+        h1 small {
+          margin-top: 14px;
+          font-size: 0.72rem;
+          letter-spacing: 0.2em;
+        }
+
+        h2,
+        .closing h2 {
+          font-size: 2.2rem;
+        }
+
+        .hero-copy,
+        .section-title p,
+        .intro-copy p {
+          font-size: 1rem;
+        }
+
+        .hero-strip,
+        .notes {
+          grid-template-columns: 1fr;
+        }
+
+        .menu-entry {
+          min-height: 330px;
+          padding-bottom: 92px;
+          background-position: 62% center;
+        }
+
+        .menu-entry-arrow {
+          left: 24px;
+          right: auto;
+          bottom: 24px;
+        }
+
+        .price-overview {
+          grid-template-columns: 1fr;
+        }
+
+        .section-title::after {
+          top: -20px;
+          font-size: 4.5rem;
+        }
+
+        .menu-dialog {
+          width: 100%;
+          height: 100dvh;
+          max-width: none;
+          max-height: none;
+          margin: 0;
+          border-radius: 0;
+        }
+
+        .menu-viewer-list {
+          padding: 14px 10px 80px;
+        }
+
+        .menu-sheet {
+          margin-bottom: 12px;
+        }
+
+        .menu-sheet figcaption {
+          padding: 8px 2px;
+        }
+
+        .menu-scroll-hint {
+          display: none;
+        }
+
+        .takeaway-facts {
+          grid-template-columns: 1fr;
+        }
+
+        .rating-card,
+        .reviews-copy {
+          min-height: auto;
+          padding: 24px;
+        }
+
+        .review-stage,
+        .review-slide {
+          min-height: 300px;
+        }
+
+        .review-slide {
+          padding: 30px 22px;
+        }
+
+        .section {
+          padding: 54px 0;
+        }
+
+        .intro-image,
+        .map-panel {
+          min-height: 360px;
+        }
+
+        .detail-row {
+          grid-template-columns: 1fr;
+          gap: 4px;
+        }
+
+        .footer-inner {
+          flex-direction: column;
+        }
+
+        body {
+          padding-bottom: 66px;
+        }
+
+        .mobile-actions {
+          position: fixed;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          z-index: 20;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 1px;
+          padding: 8px 12px;
+          background: rgba(17, 19, 18, 0.94);
+          backdrop-filter: blur(14px);
+        }
+
+        .mobile-actions .button {
+          min-height: 48px;
+          border-radius: 6px;
+        }
+      }
+    </style>
   </head>
   <body>
-    <p>Abriendo Maruko...</p>
-    <p><a href="maruko-github-upload/">Entrar en la web</a></p>
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="#inicio" aria-label="Maruko restaurante japonés">
+          <img class="brand-logo" src="maruko-github-upload/assets/maruko-logo.jpg" alt="" aria-hidden="true" />
+          <span>
+            Maruko
+            <small>restaurante japonés</small>
+          </span>
+        </a>
+
+        <nav class="nav" aria-label="Secciones principales">
+          <a href="#carta">Carta</a>
+          <a href="#para-llevar">Para llevar</a>
+          <a href="#cocina">Cocina</a>
+          <a href="#opiniones">Opiniones</a>
+          <a href="#ubicacion">Ubicación</a>
+        </nav>
+
+        <a class="button button-accent" href="tel:+34931862778">Reservar</a>
+      </div>
+    </header>
+
+    <main id="inicio">
+      <section class="hero">
+        <div class="container hero-content reveal">
+          <p class="place-label">Carrer de Gavà, 89 · Sants-Montjuïc</p>
+          <h1>
+            <span>Maruko</span>
+            <small>Restaurante japonés · Barcelona</small>
+          </h1>
+          <p class="hero-copy">
+            Sushi, nigiri y pequeños platos japoneses en una sala tranquila del barrio de Sants.
+            Producto fresco, servicio cercano y una carta pensada para compartir.
+          </p>
+          <div class="hero-actions">
+            <button class="button button-accent" type="button" data-menu-open data-menu-page="0">
+              Ver carta
+            </button>
+            <a
+              class="button button-light"
+              href="https://www.google.com/maps/search/?api=1&query=Carrer%20de%20Gav%C3%A0%2C%2089%2C%20Sants-Montju%C3%AFc%2C%2008014%20Barcelona"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Cómo llegar
+            </a>
+          </div>
+
+          <div class="hero-strip" aria-label="Información rápida">
+            <div class="hero-fact">
+              <strong>Buffet libre a la carta</strong>
+              <span>Más de 100 opciones preparadas al momento</span>
+            </div>
+            <div class="hero-fact">
+              <strong>Ambiente</strong>
+              <span>Íntimo, relajado y cómodo para venir en pareja o grupo</span>
+            </div>
+            <div class="hero-fact">
+              <strong>Para llevar</strong>
+              <span><a href="#para-llevar">Recogida sin mínimo · domicilio desde 18 €</a></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt" id="carta">
+        <div class="container">
+          <div class="section-title reveal">
+            <div>
+              <p class="kicker">Carta</p>
+              <h2>Toda la carta, en un solo lugar.</h2>
+            </div>
+            <p>
+              Abre la carta y desliza hacia abajo para consultar platos, precios,
+              bebidas y postres.
+            </p>
+          </div>
+
+          <button class="menu-entry reveal" type="button" data-menu-open data-menu-page="0">
+            <span class="menu-entry-copy">
+              <span>Carta completa · 32 páginas</span>
+              <strong>Abrir la carta</strong>
+              <small>Haz clic y desliza hacia abajo para verla completa.</small>
+            </span>
+            <span class="menu-entry-arrow" aria-hidden="true">↘</span>
+          </button>
+
+          <div class="price-overview reveal" aria-label="Resumen de precios">
+            <article class="price-card">
+              <p class="kicker">Mediodía · lunes a viernes</p>
+              <h3>Menú y buffet</h3>
+              <div class="price-line">
+                <span>Menú · 4 platos + bebida + postre</span>
+                <strong>14,95 €</strong>
+              </div>
+              <div class="price-line">
+                <span>Buffet adultos</span>
+                <strong>16,95 €</strong>
+              </div>
+              <div class="price-line">
+                <span>Buffet niños</span>
+                <strong>12,95 €</strong>
+              </div>
+            </article>
+            <article class="price-card">
+              <p class="kicker">Noche, festivos y fin de semana</p>
+              <h3>Menú y buffet</h3>
+              <div class="price-line">
+                <span>Menú · 4 platos + postre</span>
+                <strong>16,50 €</strong>
+              </div>
+              <div class="price-line">
+                <span>Buffet adultos</span>
+                <strong>21,95 €</strong>
+              </div>
+              <div class="price-line">
+                <span>Buffet niños</span>
+                <strong>13,95 €</strong>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section takeaway" id="para-llevar">
+        <div class="container">
+          <div class="section-title reveal">
+            <div>
+              <p class="kicker">Para llevar y domicilio</p>
+              <h2>Maruko, también en casa.</h2>
+            </div>
+            <p>
+              Elige platos individuales, sushi, sashimi o uno de nuestros bentos.
+              Haz el pedido por teléfono y confirma disponibilidad y zona de entrega.
+            </p>
+          </div>
+
+          <div class="takeaway-grid">
+            <article class="takeaway-copy reveal">
+              <h3>Pedido directo al restaurante.</h3>
+              <p>
+                Carta especial para recoger y servicio a domicilio. El folleto incluye
+                precios de platos individuales y 16 combinaciones de bento. La recogida
+                no tiene pedido mínimo; para domicilio, el pedido mínimo es de 18 €.
+              </p>
+              <div class="takeaway-facts">
+                <div class="takeaway-fact">
+                  <strong>18 €</strong>
+                  <span>Mínimo solo para domicilio</span>
+                </div>
+                <div class="takeaway-fact">
+                  <strong>16 bentos</strong>
+                  <span>Combinaciones listas para elegir</span>
+                </div>
+                <div class="takeaway-fact">
+                  <strong>931 862 778</strong>
+                  <span>Teléfono principal</span>
+                </div>
+                <div class="takeaway-fact">
+                  <strong>640 795 627</strong>
+                  <span>Teléfono alternativo</span>
+                </div>
+              </div>
+              <div class="takeaway-actions">
+                <a class="button button-accent" href="tel:+34931862778">Llamar y pedir</a>
+                <button class="button button-light" type="button" data-takeaway-open>
+                  Ver carta para llevar
+                </button>
+              </div>
+            </article>
+            <button class="takeaway-preview reveal" type="button" data-takeaway-open>
+              <img src="maruko-github-upload/assets/takeaway/flyer-1.jpg" alt="Carta de Maruko para llevar y a domicilio" />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="cocina">
+        <div class="container">
+          <div class="section-title reveal">
+            <div>
+              <p class="kicker">Cocina y sala</p>
+              <h2>Un japonés de barrio con gesto cuidado.</h2>
+            </div>
+            <p>
+              La sala baja el volumen y pone el foco en lo que importa:
+              una mesa bien servida, platos reconocibles y una atmósfera que invita a quedarse.
+            </p>
+          </div>
+
+          <div class="intro-grid">
+            <div class="intro-image reveal">
+              <img src="maruko-github-upload/assets/maruko-interior.png" alt="Interior cálido de Maruko restaurante japonés" />
+            </div>
+            <div class="intro-copy reveal">
+              <p>
+                Maruko se vive como un lugar cercano, no como una cadena. La carta se lee con calma,
+                la sala acompaña y cada plato llega a la mesa sin exceso de ruido.
+              </p>
+              <div class="notes">
+                <div class="note">
+                  <strong>Para dos</strong>
+                  <span>Rolls, nigiri y un entrante caliente para una cena tranquila.</span>
+                </div>
+                <div class="note">
+                  <strong>Para grupo</strong>
+                  <span>Platos al centro y selección variada sin tener que estudiar toda la carta.</span>
+                </div>
+                <div class="note">
+                  <strong>Para llevar</strong>
+                  <span>Rolls y entrantes fáciles de elegir para una comida cómoda en casa.</span>
+                </div>
+                <div class="note">
+                  <strong>Para descubrir</strong>
+                  <span>Recomendaciones visibles para quien llega por primera vez.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt" id="opiniones">
+        <div class="container">
+          <div class="section-title reveal">
+            <div>
+              <p class="kicker">Opiniones</p>
+              <h2>La experiencia, contada por nuestros clientes.</h2>
+            </div>
+            <p>
+              La valoración pública de Google ayuda a conocer Maruko antes de venir:
+              sushi variado, buffet y una ubicación cómoda en Sants.
+            </p>
+          </div>
+
+          <div class="reviews-head reveal">
+            <article class="rating-card">
+              <span class="google-label">Valoración en Google</span>
+              <strong class="rating-number">4,5</strong>
+              <div class="stars" aria-label="4,5 de 5 estrellas">★★★★½</div>
+              <p>Basado en 973 reseñas públicas.</p>
+            </article>
+            <article class="reviews-copy">
+              <h3>Más de 900 clientes ya han compartido su experiencia.</h3>
+              <p>
+                Consulta opiniones recientes y fotografías de clientes directamente
+                en el perfil oficial de Google.
+              </p>
+              <div>
+                <a
+                  class="button button-dark"
+                  href="https://share.google/S0F1ULLBMyW6ABhVh"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Ver reseñas en Google
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <div class="review-carousel reveal" aria-label="Opiniones destacadas">
+            <div class="review-stage" aria-live="polite">
+              <article class="review-slide is-active">
+                <div class="review-stars" aria-label="5 estrellas">★★★★★</div>
+                <blockquote>
+                  “Una opción excelente para disfrutar de sushi variado en Sants, con
+                  buen servicio y una experiencia muy agradable.”
+                </blockquote>
+                <cite>Resumen de opiniones públicas de clientes</cite>
+              </article>
+              <article class="review-slide" aria-hidden="true">
+                <div class="review-stars" aria-label="5 estrellas">★★★★★</div>
+                <blockquote>
+                  “Comida muy rica, personal amable y atento, con una relación
+                  calidad-precio muy buena.”
+                </blockquote>
+                <cite>Resumen de una opinión pública en Tripadvisor</cite>
+              </article>
+              <article class="review-slide" aria-hidden="true">
+                <div class="review-stars" aria-label="5 estrellas">★★★★★</div>
+                <blockquote>
+                  “Sushi de calidad, platos calientes, servicio rápido y comida fresca.”
+                </blockquote>
+                <cite>Resumen de una opinión pública en Gastroranking</cite>
+              </article>
+            </div>
+            <div class="review-controls">
+              <button class="review-arrow" type="button" data-review-prev aria-label="Opinión anterior">←</button>
+              <div class="review-dots" aria-label="Seleccionar opinión">
+                <button class="review-dot is-active" type="button" data-review-index="0" aria-label="Ver opinión 1"></button>
+                <button class="review-dot" type="button" data-review-index="1" aria-label="Ver opinión 2"></button>
+                <button class="review-dot" type="button" data-review-index="2" aria-label="Ver opinión 3"></button>
+              </div>
+              <button class="review-arrow" type="button" data-review-next aria-label="Siguiente opinión">→</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt" id="ubicacion">
+        <div class="container">
+          <div class="section-title reveal">
+            <div>
+              <p class="kicker">Ubicación</p>
+              <h2>En Carrer de Gavà, a un paso de Sants.</h2>
+            </div>
+            <p>
+              La dirección está siempre a mano para llegar sin rodeos desde Sants,
+              Plaça d'Espanya o cualquier punto cercano de Barcelona.
+            </p>
+          </div>
+
+          <div class="visit-grid">
+            <div class="map-panel reveal">
+              <iframe
+                title="Ubicación de Maruko restaurante japonés en Google Maps"
+                src="https://www.google.com/maps?q=Maruko%20restaurante%20japon%C3%A9s%2C%20Carrer%20de%20Gav%C3%A0%2C%2089%2C%20Barcelona&output=embed"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                allowfullscreen
+              ></iframe>
+              <div class="map-label">
+                <strong>Carrer de Gavà, 89</strong>
+                <span>Sants-Montjuïc, 08014 Barcelona</span>
+              </div>
+            </div>
+
+            <aside class="visit-panel reveal">
+              <div class="detail-list">
+                <div class="detail-row">
+                  <strong>Dirección</strong>
+                  <span>Carrer de Gavà, 89, Sants-Montjuïc, 08014 Barcelona</span>
+                </div>
+                <div class="detail-row">
+                  <strong>Cocina</strong>
+                  <span>Japonesa, sushi, nigiri, uramaki y entrantes para compartir</span>
+                </div>
+                <div class="detail-row">
+                  <strong>Ideal para</strong>
+                  <span>Cena tranquila, comida de barrio, pareja, amigos y pedidos para llevar</span>
+                </div>
+                <div class="detail-row">
+                  <strong>Reserva</strong>
+                  <span><a href="tel:+34931862778">931 86 27 78</a> · Mesas sujetas a disponibilidad</span>
+                </div>
+                <div class="detail-row">
+                  <strong>Horario</strong>
+                  <span>
+                    Lunes: Cerrado<br />
+                    Martes a domingo: 12:30–16:30, 20:00–23:30
+                  </span>
+                </div>
+              </div>
+              <a
+                class="button button-dark"
+                href="https://www.google.com/maps/search/?api=1&query=Carrer%20de%20Gav%C3%A0%2C%2089%2C%20Sants-Montju%C3%AFc%2C%2008014%20Barcelona"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Abrir ubicación en Google Maps
+              </a>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="closing" id="contacto">
+        <div class="container closing-inner reveal">
+          <div>
+            <h2>Una mesa japonesa tranquila en Sants-Montjuïc.</h2>
+            <p>
+              Maruko se presenta como un restaurante cercano, claro y apetecible:
+              primero la comida, después la sala, siempre con la dirección a mano.
+            </p>
+          </div>
+          <div class="closing-actions">
+            <a class="button button-accent" href="#carta">Ver carta</a>
+            <a class="button button-light" href="#para-llevar">Pedir para llevar</a>
+            <a
+              class="button button-light"
+              href="https://www.google.com/maps/search/?api=1&query=Carrer%20de%20Gav%C3%A0%2C%2089%2C%20Sants-Montju%C3%AFc%2C%2008014%20Barcelona"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Cómo llegar
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <dialog class="menu-dialog" aria-labelledby="menu-viewer-title">
+      <div class="menu-viewer-head">
+        <div class="menu-viewer-title">
+          <strong id="menu-viewer-title">Carta Maruko</strong>
+          <span data-viewer-summary>32 páginas · desliza hacia abajo</span>
+        </div>
+        <div class="menu-viewer-actions">
+          <span class="menu-scroll-hint" aria-hidden="true">Desliza hacia abajo ↓</span>
+          <button class="menu-viewer-close" type="button" data-viewer-close aria-label="Cerrar">
+            ×
+          </button>
+        </div>
+      </div>
+      <div class="menu-viewer-scroll" data-viewer-scroll>
+        <div class="menu-viewer-list" data-viewer-list></div>
+      </div>
+    </dialog>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <span>Maruko restaurante japonés</span>
+        <span>Mar–Dom: 12:30–16:30 · 20:00–23:30</span>
+        <span>Carrer de Gavà, 89, Barcelona</span>
+      </div>
+    </footer>
+
+    <div class="mobile-actions" aria-label="Acciones rápidas">
+      <a class="button button-accent" href="tel:+34931862778">Reservar</a>
+      <a class="button button-light" href="#para-llevar">Para llevar</a>
+    </div>
+
+    <script>
+      const tabs = Array.from(document.querySelectorAll(".tab"));
+      const dishes = Array.from(document.querySelectorAll(".dish"));
+
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          const filter = tab.dataset.filter;
+
+          tabs.forEach((button) => {
+            button.setAttribute("aria-pressed", String(button === tab));
+          });
+
+          dishes.forEach((dish) => {
+            const visible = filter === "all" || dish.dataset.type === filter;
+            dish.classList.toggle("hidden", !visible);
+          });
+        });
+      });
+
+      const menuDialog = document.querySelector(".menu-dialog");
+      const viewerTitle = document.querySelector("#menu-viewer-title");
+      const viewerSummary = document.querySelector("[data-viewer-summary]");
+      const viewerScroll = document.querySelector("[data-viewer-scroll]");
+      const viewerList = document.querySelector("[data-viewer-list]");
+      const mainMenuPages = Array.from(
+        { length: 32 },
+        (_, index) => `maruko-github-upload/assets/menu/page-${String(index + 1).padStart(2, "0")}.jpg`
+      );
+      const takeawayPages = [
+        "maruko-github-upload/assets/takeaway/flyer-1.jpg",
+        "maruko-github-upload/assets/takeaway/flyer-2.jpg",
+      ];
+      let viewerMode = "menu";
+
+      const menuSectionName = (page) => {
+        if (page <= 2) return "Precios y bebidas";
+        if (page <= 4) return "Entrantes";
+        if (page <= 7) return "Fritos";
+        if (page <= 10) return "Plancha y pinchos";
+        if (page <= 13) return "Arroz, fideos y wok";
+        if (page <= 16) return "Maki y nigiri";
+        if (page <= 23) return "Uramaki";
+        if (page <= 27) return "Temaki, sashimi y tartar";
+        if (page <= 30) return "Carpaccio y especialidades";
+        return "Postres";
+      };
+
+      const renderViewer = () => {
+        const viewerPages = viewerMode === "menu" ? mainMenuPages : takeawayPages;
+        viewerTitle.textContent =
+          viewerMode === "menu" ? "Carta Maruko" : "Carta para llevar";
+        viewerSummary.textContent =
+          viewerMode === "menu"
+            ? `${viewerPages.length} páginas · desliza hacia abajo`
+            : `${viewerPages.length} caras · desliza hacia abajo`;
+
+        viewerList.replaceChildren();
+
+        viewerPages.forEach((src, index) => {
+          const pageNumber = index + 1;
+          const sheet = document.createElement("figure");
+          const caption = document.createElement("figcaption");
+          const section = document.createElement("span");
+          const count = document.createElement("span");
+          const image = document.createElement("img");
+
+          sheet.className =
+            viewerMode === "menu" ? "menu-sheet" : "menu-sheet is-takeaway";
+          sheet.dataset.page = String(index);
+          section.textContent =
+            viewerMode === "menu" ? menuSectionName(pageNumber) : "Para llevar y domicilio";
+          count.textContent =
+            viewerMode === "menu"
+              ? `Página ${pageNumber} de ${viewerPages.length}`
+              : `Cara ${pageNumber} de ${viewerPages.length}`;
+          image.src = src;
+          image.alt =
+            viewerMode === "menu"
+              ? `Carta Maruko, página ${pageNumber}`
+              : `Carta para llevar Maruko, cara ${pageNumber}`;
+          image.width = viewerMode === "menu" ? 709 : 2362;
+          image.height = viewerMode === "menu" ? 985 : 1772;
+          image.loading = index < 2 ? "eager" : "lazy";
+          image.decoding = "async";
+
+          caption.append(section, count);
+          sheet.append(caption, image);
+          viewerList.append(sheet);
+        });
+      };
+
+      const openViewer = (mode, index = 0) => {
+        viewerMode = mode;
+        renderViewer();
+        menuDialog.showModal();
+        const viewerPages = mode === "menu" ? mainMenuPages : takeawayPages;
+        const targetIndex = Math.max(0, Math.min(index, viewerPages.length - 1));
+
+        requestAnimationFrame(() => {
+          const target = viewerList.querySelector(`[data-page="${targetIndex}"]`);
+          viewerScroll.scrollTop = target ? target.offsetTop - 16 : 0;
+        });
+      };
+
+      document.querySelectorAll("[data-menu-open]").forEach((button) => {
+        button.addEventListener("click", () => {
+          openViewer("menu", Number(button.dataset.menuPage || 0));
+        });
+      });
+
+      document.querySelectorAll("[data-takeaway-open]").forEach((button) => {
+        button.addEventListener("click", () => openViewer("takeaway", 0));
+      });
+
+      document.querySelector("[data-viewer-close]").addEventListener("click", () => {
+        menuDialog.close();
+      });
+
+      menuDialog.addEventListener("click", (event) => {
+        if (event.target === menuDialog) menuDialog.close();
+      });
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.14 }
+      );
+
+      document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
+
+      const reviewCarousel = document.querySelector(".review-carousel");
+      const reviewSlides = Array.from(document.querySelectorAll(".review-slide"));
+      const reviewDots = Array.from(document.querySelectorAll(".review-dot"));
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      let activeReview = 0;
+      let reviewTimer;
+
+      const showReview = (index) => {
+        activeReview = (index + reviewSlides.length) % reviewSlides.length;
+
+        reviewSlides.forEach((slide, slideIndex) => {
+          const active = slideIndex === activeReview;
+          slide.classList.toggle("is-active", active);
+          slide.setAttribute("aria-hidden", String(!active));
+        });
+
+        reviewDots.forEach((dot, dotIndex) => {
+          dot.classList.toggle("is-active", dotIndex === activeReview);
+        });
+      };
+
+      const stopReviewTimer = () => window.clearInterval(reviewTimer);
+      const startReviewTimer = () => {
+        stopReviewTimer();
+        if (!reduceMotion) {
+          reviewTimer = window.setInterval(() => showReview(activeReview + 1), 5000);
+        }
+      };
+
+      document.querySelector("[data-review-prev]").addEventListener("click", () => {
+        showReview(activeReview - 1);
+        startReviewTimer();
+      });
+
+      document.querySelector("[data-review-next]").addEventListener("click", () => {
+        showReview(activeReview + 1);
+        startReviewTimer();
+      });
+
+      reviewDots.forEach((dot) => {
+        dot.addEventListener("click", () => {
+          showReview(Number(dot.dataset.reviewIndex));
+          startReviewTimer();
+        });
+      });
+
+      reviewCarousel.addEventListener("mouseenter", stopReviewTimer);
+      reviewCarousel.addEventListener("mouseleave", startReviewTimer);
+      startReviewTimer();
+    </script>
   </body>
 </html>
